@@ -22,6 +22,7 @@ export function WidgetsGrid(props: { config: WidgetsConfig }) {
 		<Grid
 			grow
 			gutter={"xs"}
+			w={"100%"}
 		>
 			{props.config.widgets.map((w, i) => (
 				<GridCol

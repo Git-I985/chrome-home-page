@@ -3,14 +3,18 @@ import "@mantine/dates/styles.css";
 import "./styles/global.scss";
 
 import {
+	ActionIcon,
 	ColorSchemeScript,
 	Container,
 	Grid,
 	GridCol,
+	Group,
 	MantineProvider,
+	Text,
 } from "@mantine/core";
 import { createRoot } from "react-dom/client";
-import { WIDGETS_CONFIG } from "./model/data";
+import { SmartIcon } from "./components/SmartIcon";
+import { SOCIAL_LINKS, WIDGETS_CONFIG } from "./model/data";
 import type { WidgetsConfig } from "./model/types";
 import { QueryProvider } from "./Providers/QueryProvider";
 import { renderWidget } from "./renderers";
@@ -52,8 +56,40 @@ export function App() {
 					style={{
 						display: "flex",
 						alignItems: "center",
+						justifyContent: "center",
+						flexDirection: "column",
 					}}
 				>
+					<Group
+						gap={"xs"}
+						mb={"xs"}
+						justify={"start"}
+						w={"100%"}
+					>
+						{SOCIAL_LINKS.map((link, index) => (
+							<ActionIcon
+								// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+								key={index}
+								variant={link.variant ?? "light"}
+								color={link.color}
+								component={"a"}
+								href={link.href}
+								{...(link.gradient ? { gradient: link.gradient } : {})}
+							>
+								{link.content.type === "icon" ? (
+									<SmartIcon {...link.content.value} />
+								) : (
+									<Text
+										fw={700}
+										size={"xs"}
+										tt={"lowercase"}
+									>
+										{link.content.value}
+									</Text>
+								)}
+							</ActionIcon>
+						))}
+					</Group>
 					<WidgetsGrid config={WIDGETS_CONFIG} />
 				</Container>
 			</MantineProvider>

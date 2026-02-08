@@ -1,4 +1,4 @@
-import type { WidgetsConfig } from "./types";
+import type { SocialLink, WidgetsConfig } from "./types";
 
 export const WIDGETS_CONFIG: WidgetsConfig = {
 	version: 1,
@@ -29,6 +29,15 @@ export const WIDGETS_CONFIG: WidgetsConfig = {
 		// ....
 	],
 };
+
+export const SOCIAL_LINKS: SocialLink[] = [
+	{
+		variant: "light",
+		color: "red",
+		href: "https://www.youtube.com/",
+		content: { type: "icon", value: { icon: "mdi:youtube" } },
+	},
+];
 
 export const DEFAULT_WEATHER_TIMEZONE = "Europe/Poland";
 

@@ -1,9 +1,14 @@
-import type { DefaultMantineColor } from "@mantine/core";
+import type { ActionIconProps, DefaultMantineColor } from "@mantine/core";
 import type { ComponentProps } from "react";
 import type { CardHeaderIcon } from "../CardHeaderIcon";
 import type { SmartIconProps } from "../components/SmartIcon";
 
 export type GridSpan = number | "auto" | "content";
+
+export type SocialLink = Omit<ActionIconProps, "children"> & {
+	href: string;
+	content: { type: "icon"; value: SmartIconProps } | { type: "text"; value: string };
+};
 
 export type CardBadgeConfig = {
 	label: string;

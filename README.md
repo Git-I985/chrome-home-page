@@ -2,7 +2,14 @@
 
 <img src="./img.png" width="800"/>
 
-Biome + Bun + Vite + Mantine + tanstack/query
+Used:
+- Biome
+- Bun
+- Vite
+- Mantine
+- tanstack/query
+- gitleacks for sensetive data protection
+- github actions
 
 - Run `bun install # or npm install, but its better to use bun`
 - Rename `src/models/example-data.ts` to `src/models/data.ts`

@@ -45,7 +45,10 @@ export type QuickLinksWidgetConfig = {
 	links: SocialLink[];
 };
 
-export type WidgetConfig = WeatherCalendarWidgetConfig | LinksCardWidgetConfig | QuickLinksWidgetConfig;
+export type WidgetConfig =
+	| WeatherCalendarWidgetConfig
+	| LinksCardWidgetConfig
+	| QuickLinksWidgetConfig;
 
 export type WidgetsConfig = {
 	version: number;

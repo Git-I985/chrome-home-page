@@ -3,7 +3,7 @@ import { range } from "lodash-es";
 import { useWeatherData } from "../../api/useWeatherData";
 import { weatherCodes } from "../../api/weatherCodes";
 import { useClock } from "../../hooks/useClock";
-import { weatherLocation } from "../../model/data";
+import { CALENDAR_LINK, WEATHER_LINK, weatherLocation } from "../../model/data";
 import { degreesToCompass } from "../../utils/degrees-to-compas";
 import { SmartIcon } from "../SmartIcon";
 import { WeatherBadge } from "./weatherBadge";
@@ -38,7 +38,7 @@ function DateTime() {
 		<Stack gap={"xxs"}>
 			<Text
 				component={"a"}
-				href={"https://calendar.google.com/calendar/u/1/r"}
+				href={CALENDAR_LINK}
 			>
 				<Group
 					gap={"xxs"}
@@ -98,7 +98,7 @@ export function WeatherWidget() {
 						gap="xs"
 						align="center"
 						wrap={"wrap"}
-						href={`https://yandex.ru/pogoda/ru?lat=${weatherLocation.lat}&lon=${weatherLocation.lon}`}
+						href={WEATHER_LINK}
 						target="_blank"
 						rel="noreferrer"
 						style={{ textDecoration: "none", color: "inherit" }}

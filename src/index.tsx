@@ -80,4 +80,4 @@ root.render(
 );
 
 export { useClock } from "./hooks/useClock";
-export { weatherLocation } from "./model/data";
+export { CALENDAR_LINK, WEATHER_LINK, weatherLocation } from "./model/data";

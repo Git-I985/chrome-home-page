@@ -11,3 +11,6 @@ Biome + Bun + Vite + Mantine + tanstack/query
 - Open [chrome://extensions](chrome://extensions)
 - Press "Load unpacked" button
 - Select `dist` directory
+
+## Development
+- Install gitleacks on your PC

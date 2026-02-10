@@ -48,3 +48,5 @@ export const weatherLocation = {
 	lat: 0,
 	long: 0,
 };
+export const CALENDAR_LINK = "https://your-calendar-service.com/";
+export const WEATHER_LINK = "https://your-weather-service.com/";

@@ -1,0 +1,37 @@
+[extend]
+useDefault = true
+
+[[rules]]
+id = "coordinates"
+description = "GPS Coordinates (latitude/longitude)"
+regex = '''(lat|latitude|lon|longitude)\s*[:=]\s*[-+]?[0-9]*\.?[0-9]+'''
+tags = ["coordinates", "location"]
+
+[[rules]]
+id = "timezone"
+description = "IANA Timezone strings"
+regex = '''["']([A-Z][a-zA-Z]+/[A-Za-z_]+)["']'''
+tags = ["timezone"]
+
+[[rules]]
+id = "all-urls"
+description = "All HTTP/HTTPS URLs"
+regex = '''https?://[^\s"'<>]+'''
+tags = ["url"]
+
+[allowlist]
+paths = [
+  "src/model/data.ts",
+  "src/model/example-data.ts",
+  "package-lock.json",
+  "bun.lock",
+  ".gitleaks.toml",
+  "dist",
+  "idea",
+  "biome.json",
+]
+
+regexes = [
+  '''https?://openweathermap\.org''',
+  '''https?://api\.open-meteo\.com''',
+]

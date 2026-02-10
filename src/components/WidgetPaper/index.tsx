@@ -20,7 +20,6 @@ const WidgetPaperInner = forwardRef<HTMLDivElement, WidgetPaperProps>(
 				radius={"lg"}
 				py={"xs"}
 				px={"xxs"}
-				shadow={"xs"}
 				withBorder
 				{...others}
 				style={{

@@ -7,6 +7,7 @@ export type GridSpan = number | "auto" | "content";
 
 export type SocialLink = Omit<ActionIconProps, "children"> & {
 	href: `${"https://" | "http://" | "mailto:" | "tel:"}${string}`;
+	label?: string;
 	content:
 		| { type: "icon"; value: SmartIconProps }
 		| { type: "text"; value: string };
@@ -38,7 +39,13 @@ export type LinksCardWidgetConfig = {
 	items: LinksCardItemConfig[];
 };
 
-export type WidgetConfig = WeatherCalendarWidgetConfig | LinksCardWidgetConfig;
+export type QuickLinksWidgetConfig = {
+	type: "quickLinks";
+	span: GridSpan;
+	links: SocialLink[];
+};
+
+export type WidgetConfig = WeatherCalendarWidgetConfig | LinksCardWidgetConfig | QuickLinksWidgetConfig;
 
 export type WidgetsConfig = {
 	version: number;

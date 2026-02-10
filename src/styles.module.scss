@@ -1,0 +1,8 @@
+@import './styles/mantine';
+
+.appLayout {
+  display: flex;
+  gap: var(--mantine-spacing-xs);
+  flex-direction: column;
+  justify-content: center;
+}

@@ -3,22 +3,20 @@ import "@mantine/dates/styles.css";
 import "./styles/global.scss";
 
 import {
-	ActionIcon,
 	ColorSchemeScript,
 	Container,
 	Grid,
 	GridCol,
-	Group,
 	MantineProvider,
-	Text,
 } from "@mantine/core";
+import type { ReactNode } from "react";
 import { createRoot } from "react-dom/client";
-import { SmartIcon } from "./components/SmartIcon";
-import { SOCIAL_LINKS, WIDGETS_CONFIG } from "./model/data";
+import { WIDGETS_CONFIG } from "./model/data";
 import type { WidgetsConfig } from "./model/types";
 import { QueryProvider } from "./Providers/QueryProvider";
 import { renderWidget } from "./renderers";
-import { theme } from "./styles/theme";
+import { theme as themeOverride } from "./styles/theme";
+import styles from "./styles.module.scss";
 import { widgetKey } from "./utils/utils";
 
 export function WidgetsGrid(props: { config: WidgetsConfig }) {
@@ -42,58 +40,15 @@ export function WidgetsGrid(props: { config: WidgetsConfig }) {
 
 export function App() {
 	return (
-		<QueryProvider>
-			<ColorSchemeScript defaultColorScheme="auto" />
-			<MantineProvider
-				theme={theme}
-				defaultColorScheme={"auto"}
-			>
-				<Container
-					w={"100%"}
-					mih={"100vh"}
-					size={"xl"}
-					py={"xl"}
-					style={{
-						display: "flex",
-						alignItems: "center",
-						justifyContent: "center",
-						flexDirection: "column",
-					}}
-				>
-					<Group
-						gap={"xs"}
-						mb={"xs"}
-						justify={"start"}
-						w={"100%"}
-					>
-						{SOCIAL_LINKS.map((link, index) => (
-							<ActionIcon
-								// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-								key={index}
-								variant={link.variant ?? "light"}
-								color={link.color}
-								component={"a"}
-								href={link.href}
-								{...(link.gradient ? { gradient: link.gradient } : {})}
-							>
-								{link.content.type === "icon" ? (
-									<SmartIcon {...link.content.value} />
-								) : (
-									<Text
-										fw={700}
-										size={"xs"}
-										tt={"lowercase"}
-									>
-										{link.content.value}
-									</Text>
-								)}
-							</ActionIcon>
-						))}
-					</Group>
-					<WidgetsGrid config={WIDGETS_CONFIG} />
-				</Container>
-			</MantineProvider>
-		</QueryProvider>
+		<Container
+			w={"100%"}
+			mih={"100vh"}
+			size={"xl"}
+			py={"xl"}
+			className={styles.appLayout}
+		>
+			<WidgetsGrid config={WIDGETS_CONFIG} />
+		</Container>
 	);
 }
 
@@ -104,7 +59,25 @@ if (!container) {
 
 const root = createRoot(container);
 
-root.render(<App />);
+function Providers(props: { children: ReactNode }) {
+	return (
+		<QueryProvider>
+			<ColorSchemeScript defaultColorScheme="auto" />
+			<MantineProvider
+				theme={themeOverride}
+				defaultColorScheme={"auto"}
+			>
+				{props.children}
+			</MantineProvider>
+		</QueryProvider>
+	);
+}
+
+root.render(
+	<Providers>
+		<App />
+	</Providers>,
+);
 
 export { useClock } from "./hooks/useClock";
 export { weatherLocation } from "./model/data";

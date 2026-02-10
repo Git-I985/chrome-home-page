@@ -2,8 +2,16 @@
 
 <img src="./img.png" width="800"/>
 
-Biome + Bun + Vite + Mantine + tanstack/query
+## Stack
+- Biome
+- Bun
+- Vite
+- Mantine
+- tanstack/query
+- gitleacks for sensetive data protection
+- github actions
 
+## How to use
 - Run `bun install # or npm install, but its better to use bun`
 - Rename `src/models/example-data.ts` to `src/models/data.ts`
 - Configure `src/models/data.ts` as you want

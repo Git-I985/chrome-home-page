@@ -1,0 +1,15 @@
+
+.hoverable {
+  border-radius: var(--mantine-radius-md);
+  display: block;
+  text-decoration: none;
+  padding: var(--mantine-spacing-xs);
+
+  &:hover {
+    background-color: var(--mantine-color-gray-outline-hover);
+  }
+  
+  &:active {
+    background-color: var(--mantine-color-gray-light-hover);
+  }
+}

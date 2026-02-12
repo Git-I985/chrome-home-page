@@ -60,8 +60,8 @@ function renderLinksCard(widget: LinksCardWidgetConfig) {
 function renderWeatherCalendar() {
 	return (
 		<WidgetPaper
-			px={"md"}
-			py={"md"}
+			px={"xs"}
+			py={"xs"}
 		>
 			<WeatherWidget />
 		</WidgetPaper>
